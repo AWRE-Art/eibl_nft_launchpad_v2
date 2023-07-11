@@ -9,25 +9,27 @@ const AWREGallery = () => {
   const [currentImage, setCurrentImage] = useState(0);
   const [viewerIsOpen, setViewerIsOpen] = useState(false);
 
-  const openLightbox = useCallback((event, { photo, index }) => {
-    setCurrentImage(index);
-    setViewerIsOpen(true);
-  }, []);
+  // const openLightbox = useCallback((event, { photo, index }) => {
+  //   setCurrentImage(index);
+  //   setViewerIsOpen(true);
+  // }, []);
 
-  const closeLightbox = () => {
-    setCurrentImage(0);
-    setViewerIsOpen(false);
-  };
+  // const closeLightbox = () => {
+  //   setCurrentImage(0);
+  //   setViewerIsOpen(false);
+  // };
 
   return (
     <div>
       <div className={styles.desktop}>
-        <Gallery photos={photos} onClick={openLightbox} />
+        {/* <Gallery photos={photos} onClick={openLightbox} /> */}
+        <Gallery photos={photos} />
       </div>
       <div className={styles.mobile}>
-        <Gallery photos={photos.slice(0, 4)} onClick={openLightbox} />
+        {/* <Gallery photos={photos.slice(0, 4)} onClick={openLightbox} /> */}
+        <Gallery photos={photos.slice(0, 4)} />
       </div>
-      <ModalGateway>
+      {/* <ModalGateway>
         {viewerIsOpen ? (
           <Modal onClose={closeLightbox}>
             <Carousel
@@ -40,7 +42,7 @@ const AWREGallery = () => {
             />
           </Modal>
         ) : null}
-      </ModalGateway>
+      </ModalGateway> */}
     </div>
   );
 };

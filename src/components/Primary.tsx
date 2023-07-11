@@ -32,9 +32,9 @@ const Primary = () => {
     setMounted(true);
   }, []);
 
-  const handleSelect = (selectedValue) => {
-    setSelectedOption(selectedValue);
-    console.log("Selected option:", selectedValue);
+  const handleSelect = (valueAsString: string, valueAsNumber: number) => {
+    setSelectedOption(valueAsNumber);
+    console.log("Selected option:", valueAsNumber);
   };
 
   const TitleValuePair = ({ title, value }: { title: string; value: string }) => {
@@ -75,6 +75,7 @@ const Primary = () => {
             <AWREGallery />
           </div>
           <div className={styles.side}>
+            <TitleValuePair title='Connected to:' value={connector ? connector.name : "Not Connected"} />
             <TitleValuePair title='Connected to:' value={AddressHider(address)} />
             <MintSelector />
             <MintNFT />

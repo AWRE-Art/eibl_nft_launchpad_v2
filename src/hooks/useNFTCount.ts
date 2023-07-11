@@ -1,9 +1,8 @@
 import { useEffect, useState } from "react";
 import { ethers } from "ethers";
-import { useSigner } from "wagmi";
 
-const useNFTCount = (contractAddress: string): number => {
-  const [pieceCount, setNFTCount] = useState<number>(0);
+const useNFTCount = (contractAddress: string, provider: ethers.Provider): number => {
+  const [NFTCount, setNFTCount] = useState<number>(0);
 
   useEffect(() => {
     const fetchData = async () => {
@@ -22,7 +21,7 @@ const useNFTCount = (contractAddress: string): number => {
           type: "function",
         },
       ];
-      const contract = new ethers.Contract(contractAddress, contractABI, WagmiProvider);
+      const contract = new ethers.Contract(contractAddress, contractABI, provider);
       const result = await contract.totalSupply();
 
       setNFTCount(result);
