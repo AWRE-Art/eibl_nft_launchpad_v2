@@ -1,0 +1,85 @@
+:root {
+  --primary-color: black;
+  --secondary-color: white;
+  --tertiary-color: blue;
+  --stop-color: red;
+  --start-color: green;
+  /* min-height: 10000px; */
+  background: black;
+}
+
+.main_container {
+  background-color: black;
+  max-width: 1280px;
+  margin: 0 auto;
+  padding: 2rem;
+  text-align: center;
+  background: var(--primary-color);
+  /* height: 100vh; */
+}
+
+/* items inside containers */
+.options {
+  border: 5px solid black;
+  padding: 20px;
+}
+
+select.options {
+  border: 5px solid black;
+  padding: 20px;
+}
+
+.mint-info {
+  display: grid;
+  gap: 10px;
+  place-items: center;
+  font-size: 24px;
+}
+
+.button-info .price {
+  font-size: 28px;
+  font-weight: 600;
+  text-align: center;
+}
+
+.mint-input {
+  border: 5px solid #000;
+  font-size: 32px;
+  border-radius: 10px;
+  width: 120px;
+  text-align: center;
+  padding: 15px 10px;
+  font-weight: 600;
+}
+
+/* scrolling text */
+.scrolling_text_container {
+  position: fixed;
+  bottom: 0;
+  left: 0;
+  width: 100%;
+  overflow: hidden;
+  background-color: rgba(0, 0, 0, 0.6);
+  white-space: nowrap;
+}
+
+.scrolling_text {
+  display: inline-block;
+  padding-left: 100%;
+  animation: marquee 20s linear infinite;
+  color: white;
+  font-size: 20px;
+}
+
+@keyframes marquee {
+  0% {
+    transform: translateX(0);
+  }
+  100% {
+    transform: translateX(-100%);
+  }
+}
+
+.live {
+  color: var(--stop-color);
+}

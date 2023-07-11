@@ -1,0 +1,44 @@
+.header {
+  display: flex;
+  flex-wrap: wrap;
+  /* border: 5px soli black; */
+}
+
+.left {
+  flex-basis: 67%;
+  place-items: center;
+  align-content: center;
+
+  /* background-color: pink; */
+}
+
+.right {
+  flex-basis: 33%;
+  display: grid;
+  place-items: center;
+  align-content: center;
+  /* background-color: yellow; */
+}
+
+/* logo */
+.logo {
+  height: 9em;
+  padding: 1.5em;
+  will-change: filter;
+  transition: filter 300ms;
+  background-color: var(--secondary-color);
+  filter: invert(1);
+}
+.logo:hover {
+  filter: drop-shadow(0 0 2em red);
+}
+
+@media only screen and (max-width: 750px) {
+  .left {
+    flex-basis: 100%;
+  }
+
+  .right {
+    flex-basis: 100%;
+  }
+}

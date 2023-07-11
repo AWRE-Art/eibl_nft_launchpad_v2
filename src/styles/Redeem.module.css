@@ -1,0 +1,55 @@
+.redeem {
+  margin-top: 40px;
+  max-height: 100%;
+}
+
+.container_top {
+  display: flex;
+  flex-wrap: wrap;
+  margin: 40px auto;
+  /* flex-direction: row; */
+
+  /* gap: 30px; */
+  /* padding: 0 30px; */
+  /* min-height: 100%; */
+}
+
+.container_bottom {
+  display: flex;
+  flex-wrap: wrap;
+  margin: 40px auto;
+  /* flex-direction: row; */
+
+  /* gap: 30px; */
+  /* padding: 0 30px; */
+  /* min-height: 100%; */
+}
+
+.main {
+  flex: 2;
+  display: flex;
+  flex-wrap: wrap;
+  max-width: 100%;
+  max-height: 100%;
+  /* background: red; */
+}
+
+.side {
+  flex: 1;
+  display: grid;
+  grid-template-columns: auto;
+  place-items: center;
+  align-content: center;
+  gap: 50px;
+  padding: 25px 0 0 0;
+  /* background: yellow; */
+}
+
+.header {
+  border: 2px solid white;
+}
+
+.footer {
+  margin: 10px;
+  border: 2px solid white;
+}

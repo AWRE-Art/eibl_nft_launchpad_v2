@@ -1,0 +1,53 @@
+.primary {
+  margin-top: 40px;
+}
+
+.container {
+  display: flex;
+  flex-wrap: wrap;
+  max-height: 5000px;
+}
+
+.main {
+  flex-basis: 67%;
+  /* background: pink; */
+}
+
+.mobile {
+  display: none;
+}
+
+.side {
+  flex-basis: 33%;
+  display: grid;
+  grid-template-columns: auto;
+  place-items: center;
+  align-content: center;
+  gap: 50px;
+  padding: 25px 0 25px 0;
+  /* background: darkblue; */
+}
+
+.bottom {
+  padding: 60px;
+  /* background: pink; */
+}
+
+/* Media query for iPhone screen size */
+@media only screen and (max-width: 750px) {
+  .main {
+    flex-basis: 100%;
+  }
+
+  .side {
+    flex-basis: 100%;
+  }
+
+  .desktop {
+    display: none;
+  }
+
+  .mobile {
+    display: block;
+  }
+}
