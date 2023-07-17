@@ -23,8 +23,12 @@ import useAuctionIsActive from "@/hooks/useAuctionIsActive";
 
 const Primary = () => {
   const { address, connector, isConnected } = useAccount();
-  const { NFTCount, isErrorNFTCount, isLoadingNFTCount } = useNFTCount();
-  const { auctionIsActive, isErrorAuctionIsActive, isLoadingAuctionIsActive } = useAuctionIsActive();
+  const { NFTCount, isError: isErrorNFTCount, isLoading: isLoadingNFTCount } = useNFTCount();
+  const {
+    auctionIsActive,
+    isError: isErrorAuctionIsActive,
+    isLoading: isLoadingAuctionIsActive,
+  } = useAuctionIsActive();
 
   const [selectedOption, setSelectedOption] = useState(1);
   const [mounted, setMounted] = useState(false);

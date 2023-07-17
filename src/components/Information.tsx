@@ -20,22 +20,23 @@ const Information = () => {
             </Text>
             <Text color={color} fontSize='lg'>
               A thought-provoking exhibition orchestrated by the local mixed media artist Omar Ochoa, is more than just
-              a collection of artworks. It's a profound narrative intricately woven through multiple layers of artistic
-              expression and societal reflection.
+              a collection of artworks. It&apos;s a profound narrative intricately woven through multiple layers of
+              artistic expression and societal reflection.
             </Text>
             <Text color={color} fontSize='lg'>
-              The genesis of this exhibition traces back to 'Ed,' an evocative character created by Ochoa for local
-              event promotions. As people began identifying with Ed, seeing fragments of their own stories and struggles
-              in him, Ochoa recognized the potential for a more expansive exploration. Motivated by this connection, he
-              transformed a simple character into an immersive narrative, culminating in a substantial body of 41
-              thoughtfully curated artworks.
+              The genesis of this exhibition traces back to &apos;Ed,&apos; an evocative character created by Ochoa for
+              local event promotions. As people began identifying with Ed, seeing fragments of their own stories and
+              struggles in him, Ochoa recognized the potential for a more expansive exploration. Motivated by this
+              connection, he transformed a simple character into an immersive narrative, culminating in a substantial
+              body of 41 thoughtfully curated artworks.
             </Text>
+
             <Text color={color} fontSize='lg'>
-              This exhibition is not just a visual spectacle; it's a journey that navigates through several profound
-              concepts. It bravely confronts the often-unspoken struggle of being boxed in by societal expectations,
-              boldly illuminating the pressure to conform that many of us grapple with. At the same time, it celebrates
-              the liberating power of self-expression and the courage to follow one's passions, even when they diverge
-              from the norm.
+              This exhibition is not just a visual spectacle; it&apos;s a journey that navigates through several
+              profound concepts. It bravely confronts the often-unspoken struggle of being boxed in by societal
+              expectations, boldly illuminating the pressure to conform that many of us grapple with. At the same time,
+              it celebrates the liberating power of self-expression and the courage to follow one&apos;s passions, even
+              when they diverge from the norm.
             </Text>
             <Text color={color} fontSize='4xl' fontWeight='bold'>
               Web3/AI Fusion

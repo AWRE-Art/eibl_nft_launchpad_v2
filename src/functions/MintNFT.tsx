@@ -11,7 +11,7 @@ const abiFile = require("../abi/EdArt.json");
 const parsedABI = JSON.parse(JSON.stringify(abiFile));
 const iface = new ethers.Interface(parsedABI.abi);
 
-export function MintNFT({ numberOfTokens, onMinted }: { numberOfTokens: number; onMinted: () => void }) {
+export function MintNFT({ numberOfTokens }: { numberOfTokens: number }) {
   const contractABI = [iface.getFunction("mint(uint256)")];
 
   const cost_number = Number("0.069");
