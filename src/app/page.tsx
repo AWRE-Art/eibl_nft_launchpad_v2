@@ -11,7 +11,7 @@ import Information from "@/components/Information";
 import { ChakraProvider } from "@chakra-ui/react";
 import { WagmiConfig, createConfig } from "wagmi";
 import { ConnectKitProvider, getDefaultConfig } from "connectkit";
-import { mainnet, hardhat, polygon } from "wagmi/chains";
+import { hardhat, goerli, mainnet, polygon } from "wagmi/chains";
 
 import { Text } from "@chakra-ui/react";
 import { useAccount } from "wagmi";
@@ -24,7 +24,7 @@ const config = createConfig(
     appName: "ConnectKit Next.js demo",
     infuraId: process.env.NEXT_PUBLIC_INFURA_ID,
     //alchemyId:  process.env.NEXT_PUBLIC_ALCHEMY_ID,
-    chains: [hardhat, mainnet, polygon],
+    chains: [goerli, hardhat, mainnet, polygon],
     walletConnectProjectId: process.env.NEXT_PUBLIC_WALLETCONNECT_PROJECT_ID!,
   })
 );
