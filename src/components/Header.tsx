@@ -1,11 +1,39 @@
 "use client";
 
 import styles from "@/styles/Header.module.css";
+import Image from "next/image";
 
 import { Button, Link, Spacer, Stack } from "@chakra-ui/react";
 import { CustomConnectButton } from "@/components/CustomConnectButton";
 
-const Header = () => {
+import { PageType } from "../data/pages";
+
+const Header = ({
+  currentPage,
+  setCurrentPage,
+}: {
+  currentPage: PageType;
+  setCurrentPage: (page: PageType) => void;
+}) => {
+  const PageButton = (page: PageType) => {
+    switch (page) {
+      case PageType.PRIMARY:
+        return (
+          <Button maxWidth='100%' whiteSpace='normal' onClick={() => setCurrentPage(PageType.INFO)}>
+            Information
+          </Button>
+        );
+      case PageType.INFO:
+        return (
+          <Button maxWidth='100%' whiteSpace='normal' onClick={() => setCurrentPage(PageType.PRIMARY)}>
+            Mint NFT
+          </Button>
+        );
+      default:
+        break;
+    }
+  };
+
   return (
     <div className={styles.header}>
       <div className={styles.left}>
@@ -17,9 +45,7 @@ const Header = () => {
         <Stack width='100%'>
           <CustomConnectButton />
           <Spacer />
-          <Button maxWidth='100%' whiteSpace='normal'>
-            <Link href='/'>Information</Link>
-          </Button>
+          {PageButton(currentPage)}
         </Stack>
       </div>
     </div>

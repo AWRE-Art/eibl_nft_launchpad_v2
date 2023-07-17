@@ -1,36 +1,30 @@
-import { Button } from "@chakra-ui/react";
+import { Button, Text } from "@chakra-ui/react";
 import * as React from "react";
 import { usePrepareContractWrite, useContractWrite, useWaitForTransaction } from "wagmi";
 import { ethers } from "ethers";
+import dotenv from "dotenv";
 
-import { Text } from "@chakra-ui/react";
+dotenv.config();
 
-export function MintNFT(numberOfTokens: number) {
-  const address = "0x5FbDB2315678afecb367f032d93F642f64180aa3";
-  const abi = {
-    name: "mint",
-    type: "function",
-    stateMutability: "payable",
-    inputs: [
-      {
-        internalType: "uint256",
-        name: "numberOfTokens",
-        type: "uint256",
-      },
-    ],
-    outputs: [],
-  };
+const contract_address = process.env.NEXT_PUBLIC_NFT_CONTRACT_ADDRESS || "0000000000000000000000000000000000000000";
+const abiFile = require("../abi/EdArt.json");
+const parsedABI = JSON.parse(JSON.stringify(abiFile));
+const iface = new ethers.Interface(parsedABI.abi);
 
-  const cost = ethers.parseEther("0.069");
-  // console.log(cost);
+export function MintNFT({ numberOfTokens, onMinted }: { numberOfTokens: number; onMinted: () => void }) {
+  const contractABI = [iface.getFunction("mint(uint256)")];
+
+  const cost_number = Number("0.069");
+  const total_cost = cost_number * numberOfTokens;
+  const cost = ethers.parseEther(total_cost.toString());
 
   const {
     config,
     error: prepareError,
     isError: isPrepareError,
   } = usePrepareContractWrite({
-    address: address,
-    abi: [abi],
+    address: `0x${contract_address}`,
+    abi: contractABI,
     functionName: "mint",
     args: [numberOfTokens],
     value: cost,
@@ -44,18 +38,25 @@ export function MintNFT(numberOfTokens: number) {
 
   return (
     <div>
-      <Button maxWidth='100%' whiteSpace='normal' disabled={!write || isLoading} onClick={() => write()}>
+      <Button
+        maxWidth='100%'
+        whiteSpace='normal'
+        disabled={!write || isLoading}
+        onClick={() => {
+          if (write) {
+            write();
+          }
+        }}
+      >
         {isLoading ? "Minting..." : "Mint"}
       </Button>
       {isSuccess && (
-        <Text color='white'>
+        <div>
+          Successfully minted your NFT!
           <div>
-            Successfully minted your NFT!
-            <div>
-              <a href={`https://etherscan.io/tx/${data?.hash}`}>Etherscan</a>
-            </div>
+            <a href={`https://etherscan.io/tx/${data?.hash}`}>Etherscan</a>
           </div>
-        </Text>
+        </div>
       )}
       {(isPrepareError || isError) && <Text color='white'>Error: {(prepareError || error)?.message}</Text>}
     </div>

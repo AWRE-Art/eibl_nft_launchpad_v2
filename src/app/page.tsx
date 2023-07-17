@@ -6,7 +6,7 @@ import styles from "@/styles/Loading.module.css";
 import Primary from "@/components/Primary";
 import Header from "@/components/Header";
 import Footer from "@/components/Footer";
-// import Redeem from "@/components/Redeem";
+import Information from "@/components/Information";
 
 import { ChakraProvider } from "@chakra-ui/react";
 import { WagmiConfig, createConfig } from "wagmi";
@@ -17,11 +17,7 @@ import { Text } from "@chakra-ui/react";
 import { useAccount } from "wagmi";
 import { useEffect, useState } from "react";
 
-enum Pages {
-  REDEEM = "redeem",
-  INFO = "info",
-  PRIMARY = "primary",
-}
+import { PageType } from "../data/pages";
 
 const config = createConfig(
   getDefaultConfig({
@@ -35,7 +31,7 @@ const config = createConfig(
 
 export default function Home() {
   const [loading, setLoading] = useState(true);
-  const [currentPage, setCurrentPage] = useState(Pages.REDEEM);
+  const [currentPage, setCurrentPage] = useState(PageType.PRIMARY);
 
   useEffect(() => {
     setLoading(false);
@@ -50,9 +46,8 @@ export default function Home() {
       <ChakraProvider>
         <WagmiConfig config={config}>
           <ConnectKitProvider>
-            <Header />
-            {/* {currentPage === Pages.PRIMARY ? <Primary /> : <Redeem />} */}
-            <Primary />
+            <Header currentPage={currentPage} setCurrentPage={setCurrentPage} />
+            {currentPage === PageType.PRIMARY ? <Primary /> : <Information />}
             <Footer />
           </ConnectKitProvider>
         </WagmiConfig>

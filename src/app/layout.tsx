@@ -20,11 +20,11 @@ export default function RootLayout({ children }: { children: React.ReactNode }) 
 
       <body className='main_container'>
         <div>{children}</div>
-        <div className='scrolling_text_container'>
+        {/* <div className='scrolling_text_container'>
           <p className='scrolling_text'>
             Auction is not <span className='live'>LIVE</span> yet
           </p>
-        </div>
+        </div> */}
       </body>
     </html>
   );

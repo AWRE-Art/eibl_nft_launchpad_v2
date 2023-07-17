@@ -1,13 +1,12 @@
 .header {
   display: flex;
   flex-wrap: wrap;
-  /* border: 5px soli black; */
+  /* border: 5px solid white; */
 }
 
 .left {
   flex-basis: 67%;
-  place-items: center;
-  align-content: center;
+  display: flex;
 
   /* background-color: pink; */
 }
@@ -22,20 +21,23 @@
 
 /* logo */
 .logo {
-  height: 9em;
-  padding: 1.5em;
+  height: 9rem;
+  padding: 1.5rem;
   will-change: filter;
   transition: filter 300ms;
   background-color: var(--secondary-color);
   filter: invert(1);
 }
+
 .logo:hover {
-  filter: drop-shadow(0 0 2em red);
+  filter: drop-shadow(0 0 2rem red);
 }
 
 @media only screen and (max-width: 750px) {
   .left {
     flex-basis: 100%;
+    justify-content: center;
+    align-items: center;
   }
 
   .right {

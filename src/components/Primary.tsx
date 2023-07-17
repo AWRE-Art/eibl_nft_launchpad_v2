@@ -28,24 +28,22 @@ const Primary = () => {
 
   const [selectedOption, setSelectedOption] = useState(1);
   const [mounted, setMounted] = useState(false);
-  const [supply, setSupply] = useState("nothing");
-  const [auctionState, setAuctionState] = useState("Not Active");
+  // const [mintCount, setMintCount] = useState(0);
 
   const color = "white";
 
   useEffect(() => {
     setMounted(true);
-    setSupply(NFTCount);
-
-    if (auctionIsActive) {
-      setAuctionState("Active");
-    }
-  }, [NFTCount]);
+  }, [NFTCount, auctionIsActive]);
 
   const handleSelect = (valueAsString: string, valueAsNumber: number) => {
     setSelectedOption(valueAsNumber);
     console.log("Selected option:", valueAsNumber);
   };
+
+  // const handleMinted = () => {
+  //   setMintCount(mintCount + 1); // Set the minted state to trigger re-render
+  // };
 
   const TitleValuePair = ({ title, value }: { title: string; value: string }) => {
     return (
@@ -84,8 +82,6 @@ const Primary = () => {
     return `${address.substring(0, 6)}...${address.substring(address.length - 4)}`;
   };
 
-  // console.log(NFTCount);
-
   return (
     <div className={styles.primary}>
       <div className={styles.container}>
@@ -101,8 +97,8 @@ const Primary = () => {
             <Text color={color} fontSize='lg' fontWeight='bold'>
               Auction Status:
             </Text>
-            <Text color={auctionState === "Active" ? "green" : "red"} fontSize='lg'>
-              {auctionState}
+            <Text color={auctionIsActive ? "green" : "red"} fontSize='lg'>
+              {auctionIsActive ? "Active" : "Not Active"}
             </Text>
           </div>
           <div>
@@ -110,7 +106,7 @@ const Primary = () => {
               Pieces left:
             </Text>
             <Text color={color} fontSize='lg'>
-              {341 - parseFloat(supply.toString())}/341
+              {341 - parseFloat(NFTCount.toString())}/341
             </Text>
           </div>
           <Link color='teal.500' fontSize='lg' href='https://testnets.opensea.io/collection/ed-in-between-lines'>
