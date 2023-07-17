@@ -15,22 +15,32 @@ import {
 } from "@chakra-ui/react";
 
 import { ExternalLinkIcon } from "@chakra-ui/icons";
-import { useAccount } from "wagmi";
-import AWREGallery from "@/components/AWREGallery";
+import { useAccount, useContractRead } from "wagmi";
+import PhotoGallery from "@/components/PhotoGallery";
 import { MintNFT } from "@/functions/MintNFT";
-// import usePieceCount from "@/hooks/useNFTCount";
-
-// import { useProvider } from "wagmi";
+import useNFTCount from "@/hooks/useNFTCount";
+import useAuctionIsActive from "@/hooks/useAuctionIsActive";
 
 const Primary = () => {
-  const [selectedOption, setSelectedOption] = useState(1);
   const { address, connector, isConnected } = useAccount();
+  const { NFTCount, isErrorNFTCount, isLoadingNFTCount } = useNFTCount();
+  const { auctionIsActive, isErrorAuctionIsActive, isLoadingAuctionIsActive } = useAuctionIsActive();
+
+  const [selectedOption, setSelectedOption] = useState(1);
   const [mounted, setMounted] = useState(false);
+  const [supply, setSupply] = useState("nothing");
+  const [auctionState, setAuctionState] = useState("Not Active");
+
   const color = "white";
 
   useEffect(() => {
     setMounted(true);
-  }, []);
+    setSupply(NFTCount);
+
+    if (auctionIsActive) {
+      setAuctionState("Active");
+    }
+  }, [NFTCount]);
 
   const handleSelect = (valueAsString: string, valueAsNumber: number) => {
     setSelectedOption(valueAsNumber);
@@ -52,7 +62,15 @@ const Primary = () => {
 
   const MintSelector = () => {
     return (
-      <NumberInput width='80%' defaultValue={1} min={1} max={20} step={1} precision={0} onChange={handleSelect}>
+      <NumberInput
+        width='80%'
+        defaultValue={selectedOption}
+        min={1}
+        max={20}
+        step={1}
+        precision={0}
+        onChange={handleSelect}
+      >
         <NumberInputField color={color} />
         <NumberInputStepper>
           <NumberIncrementStepper />
@@ -66,40 +84,47 @@ const Primary = () => {
     return `${address.substring(0, 6)}...${address.substring(address.length - 4)}`;
   };
 
-  if (mounted) {
-    return (
-      <div className={styles.primary}>
-        <div className={styles.container}>
-          <div className={styles.main}>
-            {/* <AWRECollage /> */}
-            <AWREGallery />
-          </div>
-          <div className={styles.side}>
-            <TitleValuePair title='Connected to:' value={connector ? connector.name : "Not Connected"} />
-            <TitleValuePair title='Connected to:' value={AddressHider(address)} />
-            <MintSelector />
-            <MintNFT />
-            <div>
-              <Text color={color} fontSize='lg' fontWeight='bold'>
-                Pieces left:
-              </Text>
-              <Text color={color} fontSize='lg'>
-                300/341
-              </Text>
-            </div>
-            <Link color='teal.500' fontSize='lg' href='https://opensea.io/collection/mfers'>
-              Check OpenSea <ExternalLinkIcon mx='2px' />
-            </Link>
-          </div>
+  // console.log(NFTCount);
+
+  return (
+    <div className={styles.primary}>
+      <div className={styles.container}>
+        <div className={styles.main}>
+          <PhotoGallery />
         </div>
-        <div className={styles.bottom}>
-          <Text color={color} fontSize='2xl'>
-            Art generated is trained from art created entirely by hand ...
-          </Text>
+        <div className={styles.side}>
+          <TitleValuePair title='Connected to:' value={connector ? connector.name : "Not Connected"} />
+          <TitleValuePair title='Connected to:' value={AddressHider(address)} />
+          <MintSelector />
+          <MintNFT numberOfTokens={selectedOption} />
+          <div>
+            <Text color={color} fontSize='lg' fontWeight='bold'>
+              Auction Status:
+            </Text>
+            <Text color={auctionState === "Active" ? "green" : "red"} fontSize='lg'>
+              {auctionState}
+            </Text>
+          </div>
+          <div>
+            <Text color={color} fontSize='lg' fontWeight='bold'>
+              Pieces left:
+            </Text>
+            <Text color={color} fontSize='lg'>
+              {341 - parseFloat(supply.toString())}/341
+            </Text>
+          </div>
+          <Link color='teal.500' fontSize='lg' href='https://testnets.opensea.io/collection/ed-in-between-lines'>
+            Check OpenSea <ExternalLinkIcon mx='2px' />
+          </Link>
         </div>
       </div>
-    );
-  }
+      <div className={styles.bottom}>
+        <Text color={color} fontSize='2xl'>
+          Art generated is trained from art created entirely by hand ...
+        </Text>
+      </div>
+    </div>
+  );
 };
 
 export default Primary;

@@ -2,7 +2,7 @@
 
 import styles from "@/styles/Header.module.css";
 
-import { Box, Button, ButtonGroup, Link, Spacer, Stack } from "@chakra-ui/react";
+import { Button, Link, Spacer, Stack } from "@chakra-ui/react";
 import { CustomConnectButton } from "@/components/CustomConnectButton";
 
 const Header = () => {
@@ -18,7 +18,7 @@ const Header = () => {
           <CustomConnectButton />
           <Spacer />
           <Button maxWidth='100%' whiteSpace='normal'>
-            <Link href='/redeem'>Redeem</Link>
+            <Link href='/'>Information</Link>
           </Button>
         </Stack>
       </div>

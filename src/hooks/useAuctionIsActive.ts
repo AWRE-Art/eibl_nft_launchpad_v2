@@ -10,23 +10,23 @@ const abiFile = require("../abi/EdArt.json");
 const parsedABI = JSON.parse(JSON.stringify(abiFile));
 const iface = new ethers.Interface(parsedABI.abi);
 
-const useNFTCount = () => {
-  const [NFTCount, setNFTCount] = useState<string>("");
-  const contractABI = [iface.getFunction("totalSupply")];
+const useAuctionIsActive = () => {
+  const [auctionIsActive, setAuctionIsActive] = useState<boolean>(false);
+  const contractABI = [iface.getFunction("saleIsActive")];
 
   const { data, isError, isLoading } = useContractRead({
     address: `0x${contract_address}`,
     abi: contractABI,
-    functionName: "totalSupply",
+    functionName: "saleIsActive",
   });
 
   useEffect(() => {
     if (!isError && !isLoading && data) {
-      setNFTCount(data.toString());
+      setAuctionIsActive(Boolean(data));
     }
   }, [data, isError, isLoading]);
 
-  return { NFTCount, isError, isLoading };
+  return { auctionIsActive, isError, isLoading };
 };
 
-export default useNFTCount;
+export default useAuctionIsActive;

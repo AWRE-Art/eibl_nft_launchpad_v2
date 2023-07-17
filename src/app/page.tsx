@@ -1,10 +1,12 @@
 "use client";
 
 import Image from "next/image";
+import styles from "@/styles/Loading.module.css";
 
 import Primary from "@/components/Primary";
 import Header from "@/components/Header";
 import Footer from "@/components/Footer";
+// import Redeem from "@/components/Redeem";
 
 import { ChakraProvider } from "@chakra-ui/react";
 import { WagmiConfig, createConfig } from "wagmi";
@@ -13,6 +15,13 @@ import { mainnet, hardhat, polygon } from "wagmi/chains";
 
 import { Text } from "@chakra-ui/react";
 import { useAccount } from "wagmi";
+import { useEffect, useState } from "react";
+
+enum Pages {
+  REDEEM = "redeem",
+  INFO = "info",
+  PRIMARY = "primary",
+}
 
 const config = createConfig(
   getDefaultConfig({
@@ -25,12 +34,24 @@ const config = createConfig(
 );
 
 export default function Home() {
+  const [loading, setLoading] = useState(true);
+  const [currentPage, setCurrentPage] = useState(Pages.REDEEM);
+
+  useEffect(() => {
+    setLoading(false);
+  }, []);
+
+  if (loading) {
+    return <h1 className={styles.loading}>Loading...</h1>;
+  }
+
   return (
     <main>
       <ChakraProvider>
         <WagmiConfig config={config}>
           <ConnectKitProvider>
             <Header />
+            {/* {currentPage === Pages.PRIMARY ? <Primary /> : <Redeem />} */}
             <Primary />
             <Footer />
           </ConnectKitProvider>
