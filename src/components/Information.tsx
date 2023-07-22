@@ -15,7 +15,7 @@ const Information = () => {
         </div>
         <div className={styles.side}>
           <Stack spacing={4} color='yellow'>
-            <Text color={color} fontSize='4xl' fontWeight='bold'>
+            <Text className={styles.title} color={color} fontSize='4xl' fontWeight='bold'>
               Ed In Between Lines
             </Text>
             <Text color={color} fontSize='lg'>
@@ -38,11 +38,11 @@ const Information = () => {
               it celebrates the liberating power of self-expression and the courage to follow one&apos;s passions, even
               when they diverge from the norm.
             </Text>
-            <Text color={color} fontSize='4xl' fontWeight='bold'>
+            <Text className={styles.title} color={color} fontSize='4xl' fontWeight='bold'>
               Web3/AI Fusion
             </Text>
             <Text color={color} fontSize='lg'>
-              The NFT exhibition showcases 41 original pieces by artist Omar Ochoa, followed by AI-generated pieces
+              The NFT collection showcases 41 original pieces by artist Omar Ochoa, followed by AI-generated pieces
               inspired by his style. This experiment explores the creative potential of AI and promotes artist-AI
               partnerships within the web3 ecosystem. The exhibition demonstrates the fusion of artistic skill and
               advanced technology, emphasizing the collaborative power of AI-human interaction. It invites viewers to

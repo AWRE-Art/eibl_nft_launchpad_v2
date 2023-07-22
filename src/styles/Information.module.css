@@ -17,15 +17,21 @@
   height: 1000px;
 }
 
+.title {
+  text-align: center;
+}
+
 .side {
   flex-basis: 50%;
   display: grid;
   grid-template-columns: auto;
-  place-items: center;
-  align-content: center;
   gap: 50px;
   padding: 25px;
   /* background: darkblue; */
+}
+
+.side > * {
+  justify-content: left; /* This aligns the children left within their grid cells */
 }
 
 /* Media query for iPhone screen size */

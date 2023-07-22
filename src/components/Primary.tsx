@@ -110,7 +110,7 @@ const Primary = () => {
               Pieces left:
             </Text>
             <Text color={color} fontSize='lg'>
-              {341 - parseFloat(NFTCount.toString())}/341
+              {341 - parseFloat(NFTCount.toString())}/341 (0.069 ETH each)
             </Text>
           </div>
           <Link color='teal.500' fontSize='lg' href='https://testnets.opensea.io/collection/ed-in-between-lines'>
