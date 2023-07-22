@@ -15,7 +15,7 @@ const Information = () => {
         </div>
         <div className={styles.side}>
           <Stack spacing={4} color='yellow'>
-            <Text className={styles.title} color={color} fontSize='4xl' fontWeight='bold'>
+            <Text color={color} fontSize='4xl' fontWeight='bold'>
               Ed In Between Lines
             </Text>
             <Text color={color} fontSize='lg'>
@@ -38,7 +38,7 @@ const Information = () => {
               it celebrates the liberating power of self-expression and the courage to follow one&apos;s passions, even
               when they diverge from the norm.
             </Text>
-            <Text className={styles.title} color={color} fontSize='4xl' fontWeight='bold'>
+            <Text color={color} fontSize='4xl' fontWeight='bold'>
               Web3/AI Fusion
             </Text>
             <Text color={color} fontSize='lg'>

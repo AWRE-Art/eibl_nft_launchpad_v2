@@ -18,10 +18,6 @@
   max-height: 100%;
 }
 
-.title {
-  text-align: center;
-}
-
 .side {
   flex-basis: 50%;
   display: grid;
