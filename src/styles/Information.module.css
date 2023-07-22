@@ -1,12 +1,12 @@
 .primary {
   margin-top: 20px;
+  /* padding-bottom: 50px; */
 }
 
 .container {
   display: flex;
   flex-wrap: wrap;
   max-height: 5000px;
-  padding-bottom: 50px;
 }
 
 .main {
@@ -23,7 +23,7 @@
   display: grid;
   grid-template-columns: auto;
   gap: 50px;
-  padding: 25px;
+  padding: 0 0 0 25px;
   /* background: darkblue; */
 }
 
@@ -39,5 +39,6 @@
 
   .side {
     flex-basis: 100%;
+    padding: 25px 0 0 0;
   }
 }
