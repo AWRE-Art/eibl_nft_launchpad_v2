@@ -2,8 +2,10 @@
 
 import styles from "@/styles/Information.module.css";
 import { Tabs, TabList, Tab, TabPanels, TabPanel } from "@chakra-ui/react";
-import EdInBetweenLines from "./information/EdInBetweenLines";
-import AINFTs from "./information/AINFTs";
+
+import Bio from "./information/Bio";
+import Exhibition from "./information/Exhibition";
+import AIExamples from "./information/AIExamples";
 
 const Information = () => {
   const color = "white";
@@ -13,15 +15,19 @@ const Information = () => {
       {/* <div className={styles.container}> */}
       <Tabs variant='enclosed' color='white'>
         <TabList>
-          <Tab>Ed in Between Lines</Tab>
-          <Tab>AI NFTs</Tab>
+          <Tab>Bio</Tab>
+          <Tab>Exhibition</Tab>
+          <Tab>AI Examples</Tab>
         </TabList>
         <TabPanels>
           <TabPanel className={styles.container}>
-            <EdInBetweenLines />
+            <Bio />
           </TabPanel>
           <TabPanel className={styles.container}>
-            <AINFTs />
+            <Exhibition />
+          </TabPanel>
+          <TabPanel className={styles.container}>
+            <AIExamples />
           </TabPanel>
         </TabPanels>
       </Tabs>

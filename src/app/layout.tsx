@@ -9,7 +9,7 @@ export const metadata: Metadata = {
   title: "AWRE NFT Launchpad",
   description: "Ed in Between Lines",
   icons: {
-    icon: "/logo.png",
+    icon: "/logos/logo.png",
   },
 };
 

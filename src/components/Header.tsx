@@ -38,7 +38,7 @@ const Header = ({
     <div className={styles.header}>
       <div className={styles.left}>
         <Link href='https://www.instagram.com/awreart/' target='_blank'>
-          <img className={styles.logo} src='/logo.svg' alt='AWRE logo' />
+          <img className={styles.logo} src='/logos/logo.svg' alt='AWRE logo' />
         </Link>
       </div>
       <div className={styles.right}>
