@@ -9,7 +9,7 @@ import { Carousel } from "react-responsive-carousel";
 const images = [
   { image: "./exhibition/exhibition-01.jpg" },
   { image: "./exhibition/exhibition-02.jpg" },
-  { image: "./exhibition/exhibition-03.jpg" },
+  // { image: "./exhibition/exhibition-03.jpg" },
   { image: "./exhibition/exhibition-04.jpg" },
   { image: "./exhibition/exhibition-05.jpg" },
   { image: "./exhibition/exhibition-07.jpg" },
@@ -55,8 +55,8 @@ const Exhibition = () => {
             diverge from the norm.
           </Text>
           <Text color={color} fontSize='lg'>
-            More than anything, "Ed in Between Lines" serves as a symbolic reflection of our innermost selves. It
-            captures the universal human yearning for freedom, encapsulating the inherent desire within all of us to
+            More than anything, &apos;Ed in Between Lines&apos; serves as a symbolic reflection of our innermost selves.
+            It captures the universal human yearning for freedom, encapsulating the inherent desire within all of us to
             break free from our internal constraints. Each piece in the exhibition serves as a mirror, offering a moment
             for introspection and encouraging us to confront and embrace our individual truths.
           </Text>
