@@ -22,7 +22,7 @@ const Exhibition = () => {
     <>
       <div className={styles.main}>
         {/* <img className={styles.image} src='./exhibition/exhibition-01.jpg' alt='' /> */}
-        <Carousel>
+        <Carousel showThumbs={false}>
           {images.map((object, index) => (
             <div key={index}>
               <img className={styles.image} src={object.image} />
