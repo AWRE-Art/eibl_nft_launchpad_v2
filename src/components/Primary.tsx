@@ -119,7 +119,7 @@ const Primary = () => {
         </div>
       </div>
       <div className={styles.bottom}>
-        <Text color={color} fontSize='2xl'>
+        <Text color={color} fontSize='xl'>
           Art generated is trained from art created entirely by hand ...
         </Text>
       </div>

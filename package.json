@@ -30,6 +30,7 @@
     "react-dom": "18.2.0",
     "react-images": "^1.2.0-beta.7",
     "react-photo-gallery": "^8.0.0",
+    "react-responsive-carousel": "^3.2.23",
     "react-router-dom": "^6.14.1",
     "typescript": "5.1.6",
     "viem": "^1.2.12",
