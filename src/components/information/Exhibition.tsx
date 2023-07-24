@@ -9,10 +9,12 @@ import { Carousel } from "react-responsive-carousel";
 const images = [
   { image: "./exhibition/exhibition-01.jpg" },
   { image: "./exhibition/exhibition-02.jpg" },
-  // { image: "./exhibition/exhibition-03.jpg" },
+  { image: "./exhibition/exhibition-03.jpg" },
   { image: "./exhibition/exhibition-04.jpg" },
   { image: "./exhibition/exhibition-05.jpg" },
+  { image: "./exhibition/exhibition-06.jpg" },
   { image: "./exhibition/exhibition-07.jpg" },
+  { image: "./exhibition/exhibition-08.jpg" },
 ];
 
 const Exhibition = () => {
