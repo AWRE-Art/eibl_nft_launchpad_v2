@@ -113,7 +113,12 @@ const Primary = () => {
               {341 - parseFloat(NFTCount.toString())}/341 (0.069 ETH each)
             </Text>
           </div>
-          <Link color='teal.500' fontSize='lg' href='https://testnets.opensea.io/collection/ed-in-between-lines'>
+          <Link
+            color='teal.500'
+            fontSize='lg'
+            href='https://testnets.opensea.io/collection/ed-in-between-lines-1'
+            isExternal
+          >
             Check OpenSea <ExternalLinkIcon mx='2px' />
           </Link>
         </div>

@@ -10,7 +10,7 @@ const Footer = () => {
     <div className={styles.footer}>
       <Link
         color='teal.500'
-        href='https://etherscan.io/address/0x79FCDEF22feeD20eDDacbB2587640e45491b757f#code'
+        href='https://goerli.etherscan.io/address/0x3908f1d57cf1c394e342f41836dd83482724f360#code'
         isExternal
       >
         Verified Contract Address <ExternalLinkIcon mx='2px' />
